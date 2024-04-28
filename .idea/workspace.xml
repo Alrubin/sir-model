@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="846bd3f7-2e81-4050-bfbe-7b3ce9194e45" name="Changes" comment="Refactor: introduced validation with pydantic">
-      <change afterPath="$PROJECT_DIR$/lib/disease.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_disease.py" afterDir="false" />
+    <list default="true" id="846bd3f7-2e81-4050-bfbe-7b3ce9194e45" name="Changes" comment="creata classe Disease">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/disease.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/disease.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_disease.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_disease.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +101,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713633885485</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="creata classe Disease">
+      <option name="closed" value="true" />
+      <created>1713818413045</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713818413045</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,6 +126,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created class Scenario" />
     <MESSAGE value="Refactor: introduced validation with pydantic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor: introduced validation with pydantic" />
+    <MESSAGE value="creata classe Disease" />
+    <option name="LAST_COMMIT_MESSAGE" value="creata classe Disease" />
   </component>
 </project>
