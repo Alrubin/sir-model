@@ -9,3 +9,6 @@ class Disease(BaseModel):
     def rates(self) -> List[str]:
         return list(self.__dict__.keys())
 
+    def mean_duration(self):
+        return 1/self.recovery_rate
+
