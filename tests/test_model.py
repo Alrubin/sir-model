@@ -1,6 +1,9 @@
 import unittest
+
+from parameterized import parameterized
+
 from lib.disease import Disease
-from lib.model import Population
+from lib.model import Population, Scenario
 from lib.model import SIRModel
 
 
@@ -14,18 +17,32 @@ class PopulationTest(unittest.TestCase):
 
 class SIRModelTest(unittest.TestCase):
     def test_base(self):
-        initial_conditions = Population(susceptible=10, infected=10, removed=10)
+        initial_conditions = Population(susceptible=10, infected=10, removed=10).tuple()
         disease = Disease(transmission_rate=0.1, recovery_rate=0.1)
         model = SIRModel(disease=disease)
 
-        gradient = model(initial_conditions)
+        gradient = model(initial_conditions, 0)
 
         self.assertEqual((-10.0, 9.0, 1.0), gradient)
 
     def test_absence_of_disease(self):
-        population = Population(susceptible=10, infected=10, removed=10)
+        population = Population(susceptible=10, infected=10, removed=10).tuple()
         model = SIRModel(disease=None)
 
-        gradient = model(population)
+        gradient = model(population, 0)
 
         self.assertEqual((0.0, 0.0, 0.0), gradient)
+
+
+class ScenarioTest(unittest.TestCase):
+    @parameterized.expand([0, 1, 10])
+    def test_base(self, n):
+        initial_conditions = Population(susceptible=10, infected=10, removed=10)
+        disease = Disease(transmission_rate=0.1, recovery_rate=0.1)
+
+        scenario = Scenario(initial_conditions=initial_conditions, disease=disease)
+        S, I, R = scenario.build(n_days=n)
+
+        self.assertEqual(len(S), n)
+        self.assertEqual(len(I), n)
+        self.assertEqual(len(R), n)

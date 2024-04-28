@@ -1,5 +1,9 @@
-from typing import Union
+from typing import Union, Tuple
+
+import numpy as np
 from pydantic import BaseModel, NonNegativeInt
+from scipy.integrate import odeint
+
 from lib.disease import Disease
 
 
@@ -17,9 +21,21 @@ class SIRModel:
         self.tr = disease.transmission_rate if disease else 0
         self.rr = disease.recovery_rate if disease else 0
 
-    def __call__(self, y: Population):
-        S, I, R = y.susceptible, y.infected, y.removed
+    def __call__(self, y: Tuple[float], t: float):
+        S, I, R = y
         dSdt = -self.tr * S * I
         dIdt = self.tr * S * I - self.rr * I
         dRdt = self.rr * I
         return dSdt, dIdt, dRdt
+
+
+class Scenario:
+    def __init__(self, initial_conditions: Population, disease: Disease):
+        self.initial_conditions = initial_conditions
+        self.disease = disease
+
+    def build(self, n_days):
+        time_grid = np.linspace(start=0, stop=n_days, num=n_days)
+        model = SIRModel(disease=self.disease)
+        time_evolution = odeint(model, self.initial_conditions.tuple(), time_grid)
+        return time_evolution.T
