@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="846bd3f7-2e81-4050-bfbe-7b3ce9194e45" name="Changes" comment="creata classe Disease">
+    <list default="true" id="846bd3f7-2e81-4050-bfbe-7b3ce9194e45" name="Changes" comment="Introduced mean_duration method for Disease">
+      <change afterPath="$PROJECT_DIR$/lib/model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/disease.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/disease.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_disease.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_disease.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +110,39 @@
       <option name="project" value="LOCAL" />
       <updated>1713818413045</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Refactor classe Disease &#10;&#10;Non consideriamo il tasso di riinfezione, unifichiamo i tassi di trasmissione, cambiamo range di validazione dei tassi">
+      <option name="closed" value="true" />
+      <created>1714298099191</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714298099191</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Refactor classe Disease&#10;&#10;Non consideriamo il tasso di riinfezione, unifichiamo i tassi di trasmissione, cambiamo range di validazione dei tassi">
+      <option name="closed" value="true" />
+      <created>1714298359025</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714298359025</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Introduced mean_duration method for Disease">
+      <option name="closed" value="true" />
+      <created>1714298391337</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714298391337</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Introduced mean_duration method for Disease">
+      <option name="closed" value="true" />
+      <created>1714298693443</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714298693443</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,6 +160,9 @@
     <MESSAGE value="Created class Scenario" />
     <MESSAGE value="Refactor: introduced validation with pydantic" />
     <MESSAGE value="creata classe Disease" />
-    <option name="LAST_COMMIT_MESSAGE" value="creata classe Disease" />
+    <MESSAGE value="Refactor classe Disease &#10;&#10;Non consideriamo il tasso di riinfezione, unifichiamo i tassi di trasmissione, cambiamo range di validazione dei tassi" />
+    <MESSAGE value="Refactor classe Disease&#10;&#10;Non consideriamo il tasso di riinfezione, unifichiamo i tassi di trasmissione, cambiamo range di validazione dei tassi" />
+    <MESSAGE value="Introduced mean_duration method for Disease" />
+    <option name="LAST_COMMIT_MESSAGE" value="Introduced mean_duration method for Disease" />
   </component>
 </project>
