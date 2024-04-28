@@ -7,7 +7,7 @@ from lib.disease import Disease
 
 class DiseaseTestcase(TestCase):
 
-    def test_on_disease_rates(self):
+    def test_base(self):
         disease = my_disease(0.1, 0.1)
 
         self.assertCountEqual(["transmission_rate","recovery_rate"], disease.rates)
