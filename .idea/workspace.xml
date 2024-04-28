@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="846bd3f7-2e81-4050-bfbe-7b3ce9194e45" name="Changes" comment="Introduced mean_duration method for Disease">
-      <change afterPath="$PROJECT_DIR$/lib/model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_model.py" afterDir="false" />
+    <list default="true" id="846bd3f7-2e81-4050-bfbe-7b3ce9194e45" name="Changes" comment="Fixed convention for Test classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_disease.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_disease.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +142,55 @@
       <option name="project" value="LOCAL" />
       <updated>1714298693443</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Rename">
+      <option name="closed" value="true" />
+      <created>1714301114195</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714301114195</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Introduced SIRDistribution class">
+      <option name="closed" value="true" />
+      <created>1714301141840</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1714301141840</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Introduced SIRDistribution class">
+      <option name="closed" value="true" />
+      <created>1714301289721</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1714301289721</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Introduced SIRModelPopulation class">
+      <option name="closed" value="true" />
+      <created>1714307228545</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714307228545</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Introduced SIRModelPopulation class">
+      <option name="closed" value="true" />
+      <created>1714307265426</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1714307265426</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fixed convention for Test classes">
+      <option name="closed" value="true" />
+      <created>1714307333898</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1714307333898</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +211,10 @@
     <MESSAGE value="Refactor classe Disease &#10;&#10;Non consideriamo il tasso di riinfezione, unifichiamo i tassi di trasmissione, cambiamo range di validazione dei tassi" />
     <MESSAGE value="Refactor classe Disease&#10;&#10;Non consideriamo il tasso di riinfezione, unifichiamo i tassi di trasmissione, cambiamo range di validazione dei tassi" />
     <MESSAGE value="Introduced mean_duration method for Disease" />
-    <option name="LAST_COMMIT_MESSAGE" value="Introduced mean_duration method for Disease" />
+    <MESSAGE value="Rename" />
+    <MESSAGE value="Introduced SIRDistribution class" />
+    <MESSAGE value="Introduced SIRModelPopulation class" />
+    <MESSAGE value="Fixed convention for Test classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed convention for Test classes" />
   </component>
 </project>
