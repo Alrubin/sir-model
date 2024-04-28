@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import Union
 from pydantic import BaseModel, NonNegativeInt
 from lib.disease import Disease
 
@@ -7,10 +7,6 @@ class SIRModelPopulation(BaseModel):
     susceptible: NonNegativeInt
     infected: NonNegativeInt
     removed: NonNegativeInt
-
-    @property
-    def states(self) -> List[str]:
-        return list(self.__dict__.keys())
 
 
 class SIRModel:
