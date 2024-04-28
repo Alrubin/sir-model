@@ -41,8 +41,8 @@ class ScenarioTest(unittest.TestCase):
         disease = Disease(transmission_rate=0.1, recovery_rate=0.1)
 
         scenario = Scenario(initial_conditions=initial_conditions, disease=disease)
-        S, I, R = scenario.build(n_days=n)
+        susceptible_evolution, infected_evolution, removed_evolution = scenario.build(n_days=n)
 
-        self.assertEqual(len(S), n)
-        self.assertEqual(len(I), n)
-        self.assertEqual(len(R), n)
+        self.assertEqual(len(susceptible_evolution), n)
+        self.assertEqual(len(infected_evolution), n)
+        self.assertEqual(len(removed_evolution), n)

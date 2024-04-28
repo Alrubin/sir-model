@@ -37,5 +37,6 @@ class Scenario:
     def build(self, n_days):
         time_grid = np.linspace(start=0, stop=n_days, num=n_days)
         model = SIRModel(disease=self.disease)
-        time_evolution = odeint(model, self.initial_conditions.tuple(), time_grid)
-        return time_evolution.T
+        y_evolution = odeint(model, self.initial_conditions.tuple(), time_grid)
+        susceptible_evolution, infected_evolution, removed_evolution = y_evolution.T
+        return susceptible_evolution, infected_evolution, removed_evolution
