@@ -8,6 +8,9 @@ class Population(BaseModel):
     infected: NonNegativeInt
     removed: NonNegativeInt
 
+    def tuple(self):
+        return self.susceptible, self.infected, self.removed
+
 
 class SIRModel:
     def __init__(self, disease: Union[None, Disease] = None):

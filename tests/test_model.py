@@ -7,11 +7,9 @@ from lib.model import SIRModel
 class PopulationTest(unittest.TestCase):
 
     def test_base(self):
-        distribution = Population(susceptible=5, infected=10, removed=15)
+        population = Population(susceptible=5, infected=10, removed=15).tuple()
 
-        self.assertEqual(5, distribution.susceptible)
-        self.assertEqual(10, distribution.infected)
-        self.assertEqual(15, distribution.removed)
+        self.assertEqual((5, 10, 15), population)
 
 
 class SIRModelTest(unittest.TestCase):
