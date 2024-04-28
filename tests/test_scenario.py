@@ -4,7 +4,7 @@ from lib.scenario import Scenario
 from pydantic import ValidationError
 
 
-class ScenarioTestCase(TestCase):
+class ScenarioTest(TestCase):
 
     @parameterized.expand([
         (2, False),

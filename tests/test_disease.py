@@ -5,7 +5,7 @@ from parameterized import parameterized
 from lib.disease import Disease
 
 
-class DiseaseTestcase(TestCase):
+class DiseaseTest(TestCase):
 
     def test_base(self):
         disease = my_disease(0.1, 0.1)

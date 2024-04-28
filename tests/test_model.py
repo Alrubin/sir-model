@@ -3,7 +3,7 @@ import unittest
 from lib.model import SIRModelPopulation
 
 
-class SIRModelPopulation(unittest.TestCase):
+class SIRModelPopulationTest(unittest.TestCase):
 
     def test_base(self):
         distribution = SIRModelPopulation(susceptible=5, infected=10, removed=15)
