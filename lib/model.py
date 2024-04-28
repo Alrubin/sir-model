@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Union
 from pydantic import BaseModel, NonNegativeInt
 from lib.disease import Disease
 
@@ -14,9 +14,9 @@ class SIRModelPopulation(BaseModel):
 
 
 class SIRModel:
-    def __init__(self, disease: Disease):
-        self.tr = disease.transmission_rate
-        self.rr = disease.recovery_rate
+    def __init__(self, disease: Union[None, Disease] = None):
+        self.tr = disease.transmission_rate if disease else 0
+        self.rr = disease.recovery_rate if disease else 0
 
     def __call__(self, y: SIRModelPopulation):
         S, I, R = y.susceptible, y.infected, y.removed
