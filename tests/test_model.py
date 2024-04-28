@@ -1,13 +1,13 @@
 import unittest
 from lib.disease import Disease
-from lib.model import SIRModelPopulation
+from lib.model import Population
 from lib.model import SIRModel
 
 
-class SIRModelPopulationTest(unittest.TestCase):
+class PopulationTest(unittest.TestCase):
 
     def test_base(self):
-        distribution = SIRModelPopulation(susceptible=5, infected=10, removed=15)
+        distribution = Population(susceptible=5, infected=10, removed=15)
 
         self.assertEqual(5, distribution.susceptible)
         self.assertEqual(10, distribution.infected)
@@ -16,7 +16,7 @@ class SIRModelPopulationTest(unittest.TestCase):
 
 class SIRModelTest(unittest.TestCase):
     def test_base(self):
-        initial_conditions = SIRModelPopulation(susceptible=10, infected=10, removed=10)
+        initial_conditions = Population(susceptible=10, infected=10, removed=10)
         disease = Disease(transmission_rate=0.1, recovery_rate=0.1)
         model = SIRModel(disease=disease)
 
@@ -25,9 +25,9 @@ class SIRModelTest(unittest.TestCase):
         self.assertEqual((-10.0, 9.0, 1.0), gradient)
 
     def test_absence_of_disease(self):
-        initial_conditions = SIRModelPopulation(susceptible=10, infected=10, removed=10)
+        population = Population(susceptible=10, infected=10, removed=10)
         model = SIRModel(disease=None)
 
-        gradient = model(initial_conditions)
+        gradient = model(population)
 
         self.assertEqual((0.0, 0.0, 0.0), gradient)

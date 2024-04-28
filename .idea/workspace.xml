@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="846bd3f7-2e81-4050-bfbe-7b3ce9194e45" name="Changes" comment="Managed situation with no disease">
+    <list default="true" id="846bd3f7-2e81-4050-bfbe-7b3ce9194e45" name="Changes" comment="Rename">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/scenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/scenario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_scenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_scenario.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +211,63 @@
       <option name="project" value="LOCAL" />
       <updated>1714311907093</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Refactor">
+      <option name="closed" value="true" />
+      <created>1714314440018</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1714314440018</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Removed Scenario class">
+      <option name="closed" value="true" />
+      <created>1714314529215</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1714314529215</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Refactor">
+      <option name="closed" value="true" />
+      <created>1714314634280</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1714314634280</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Refactor">
+      <option name="closed" value="true" />
+      <created>1714314658257</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1714314658257</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Rename">
+      <option name="closed" value="true" />
+      <created>1714315389307</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1714315389307</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Rename">
+      <option name="closed" value="true" />
+      <created>1714335968477</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1714335968477</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Rename">
+      <option name="closed" value="true" />
+      <created>1714336005597</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1714336005597</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -236,13 +288,15 @@
     <MESSAGE value="Refactor classe Disease &#10;&#10;Non consideriamo il tasso di riinfezione, unifichiamo i tassi di trasmissione, cambiamo range di validazione dei tassi" />
     <MESSAGE value="Refactor classe Disease&#10;&#10;Non consideriamo il tasso di riinfezione, unifichiamo i tassi di trasmissione, cambiamo range di validazione dei tassi" />
     <MESSAGE value="Introduced mean_duration method for Disease" />
-    <MESSAGE value="Rename" />
     <MESSAGE value="Introduced SIRDistribution class" />
     <MESSAGE value="Introduced SIRModelPopulation class" />
     <MESSAGE value="Fixed convention for Test classes" />
     <MESSAGE value="Definita classe SIRModel" />
     <MESSAGE value="rename" />
     <MESSAGE value="Managed situation with no disease" />
-    <option name="LAST_COMMIT_MESSAGE" value="Managed situation with no disease" />
+    <MESSAGE value="Removed Scenario class" />
+    <MESSAGE value="Refactor" />
+    <MESSAGE value="Rename" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename" />
   </component>
 </project>
