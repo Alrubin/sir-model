@@ -11,7 +11,7 @@ class ScenarioTest(unittest.TestCase):
         disease = SIRDisease(transmission_rate=0.1, recovery_rate=0.1)
         scenario = Scenario(initial_conditions=initial_conditions, disease=disease)
 
-        population_evolution = scenario.build(n_days=n)
+        population_evolution = scenario.compute_evolution(n_days=n)
 
-        self.assertEqual(len(population_evolution), n)
+        self.assertEqual(len(population_evolution), n+1)
         self.assertEqual(initial_conditions, population_evolution[0])
