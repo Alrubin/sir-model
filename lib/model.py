@@ -9,7 +9,7 @@ class SIRModel:
         self.rr = disease.recovery_rate if disease else 0
 
     def __call__(self, y: SIRPopulationState, t: float):
-        S, I, R = y.susceptibles.value, y.infected.value, y.removed.value
+        S, I, R = y.array()
         dSdt = -self.tr * S * I
         dIdt = self.tr * S * I - self.rr * I
         dRdt = self.rr * I
