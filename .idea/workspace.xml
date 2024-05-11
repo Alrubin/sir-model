@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="846bd3f7-2e81-4050-bfbe-7b3ce9194e45" name="Changes" comment="Rename">
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+    <list default="true" id="846bd3f7-2e81-4050-bfbe-7b3ce9194e45" name="Changes" comment="Refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/population.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/population.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/scenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/scenario.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_scenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_scenario.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +302,79 @@
       <option name="project" value="LOCAL" />
       <updated>1714342133335</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Sistemato spazio in test">
+      <option name="closed" value="true" />
+      <created>1714419912617</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1714419912617</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Introdotta Dash app">
+      <option name="closed" value="true" />
+      <created>1714419926536</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1714419926536</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Reformat &amp; Import Optimization">
+      <option name="closed" value="true" />
+      <created>1715432345424</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1715432345424</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Introduced __init__files">
+      <option name="closed" value="true" />
+      <created>1715433999548</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1715433999548</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Rename Disease in SIRDisease">
+      <option name="closed" value="true" />
+      <created>1715434620573</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1715434620573</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Rename Disease in SIRDisease">
+      <option name="closed" value="true" />
+      <created>1715434722860</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1715434722860</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Build population file and refactor">
+      <option name="closed" value="true" />
+      <created>1715434778505</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1715434778505</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Created file scenario">
+      <option name="closed" value="true" />
+      <created>1715434805540</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1715434805540</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Refactor">
+      <option name="closed" value="true" />
+      <created>1715435289587</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1715435289587</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -331,10 +401,17 @@
     <MESSAGE value="rename" />
     <MESSAGE value="Managed situation with no disease" />
     <MESSAGE value="Removed Scenario class" />
-    <MESSAGE value="Refactor" />
     <MESSAGE value="Added tuple method to Population" />
     <MESSAGE value="Created class Scenario" />
     <MESSAGE value="Rename" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename" />
+    <MESSAGE value="Sistemato spazio in test" />
+    <MESSAGE value="Introdotta Dash app" />
+    <MESSAGE value="Reformat &amp; Import Optimization" />
+    <MESSAGE value="Introduced __init__files" />
+    <MESSAGE value="Rename Disease in SIRDisease" />
+    <MESSAGE value="Build population file and refactor" />
+    <MESSAGE value="Created file scenario" />
+    <MESSAGE value="Refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor" />
   </component>
 </project>
