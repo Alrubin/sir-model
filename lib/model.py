@@ -1,19 +1,6 @@
-from typing import Union, Tuple
-
-import numpy as np
-from pydantic import BaseModel, NonNegativeInt
-from scipy.integrate import odeint
-
-from lib.disease import Disease
-
-
-class Population(BaseModel):
-    susceptible: NonNegativeInt
-    infected: NonNegativeInt
-    removed: NonNegativeInt
-
-    def tuple(self):
-        return self.susceptible, self.infected, self.removed
+from typing import Union
+from lib.disease import SIRDisease
+from lib.population import SIRPopulationState
 
 
 class SIRModel:
@@ -21,8 +8,8 @@ class SIRModel:
         self.tr = disease.transmission_rate if disease else 0
         self.rr = disease.recovery_rate if disease else 0
 
-    def __call__(self, y: Tuple[float], t: float):
-        S, I, R = y
+    def __call__(self, y: SIRPopulationState, t: float):
+        S, I, R = y.susceptibles.value, y.infected.value, y.removed.value
         dSdt = -self.tr * S * I
         dIdt = self.tr * S * I - self.rr * I
         dRdt = self.rr * I
