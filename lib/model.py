@@ -17,7 +17,7 @@ class Population(BaseModel):
 
 
 class SIRModel:
-    def __init__(self, disease: Union[None, Disease] = None):
+    def __init__(self, disease: Union[None, SIRDisease] = None):
         self.tr = disease.transmission_rate if disease else 0
         self.rr = disease.recovery_rate if disease else 0
 

@@ -1,6 +1,6 @@
 from pydantic import BaseModel, PositiveFloat
 
-class Disease(BaseModel):
+class SIRDisease(BaseModel):
     transmission_rate: PositiveFloat
     recovery_rate: PositiveFloat
 
