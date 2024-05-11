@@ -1,5 +1,4 @@
 from pydantic import BaseModel, PositiveFloat
-from typing import List
 
 class Disease(BaseModel):
     transmission_rate: PositiveFloat
