@@ -11,16 +11,10 @@ class Scenario:
         self.disease = disease
 
     def compute_evolution(self, n_days):
-        if n_days == 0:
-            return [self.initial_conditions]
-        else:
+        population_evolution = [self.initial_conditions]
+        if n_days != 0:
             time_grid = np.linspace(start=0, stop=n_days, num=n_days)
             model = SIRModel(disease=self.disease)
-            def model_fn(y, t):
-                S, I, R = y
-                population = build_sir_population(S, I, R)
-                gradient = model(population, t)
-                return gradient
+            population_evolution += [build_sir_population(*population) for population in odeint(model, self.initial_conditions.array(), time_grid)]
 
-            population_evolution = odeint(model_fn, self.initial_conditions.array(), time_grid)
-            return [self.initial_conditions] + [build_sir_population(*population) for population in population_evolution]
+        return population_evolution

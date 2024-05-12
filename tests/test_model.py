@@ -18,7 +18,7 @@ class PopulationStateTest(unittest.TestCase):
 
         population_array = population.array()
 
-        self.assertEqual([5,10,15], population_array)
+        self.assertEqual([5, 10, 15], population_array)
 
 
 class SIRModelTest(unittest.TestCase):
@@ -32,7 +32,15 @@ class SIRModelTest(unittest.TestCase):
         self.assertEqual((-10.0, 9.0, 1.0), gradient)
 
     def test_absence_of_disease(self):
-        population =  build_sir_population(10, 10, 10)
+        population = build_sir_population(10, 10, 10)
+        model = SIRModel(disease=None)
+
+        gradient = model(population, 0)
+
+        self.assertEqual((0.0, 0.0, 0.0), gradient)
+
+    def test_compatibility_with_list_of_floats(self):
+        population = [10, 10, 10]
         model = SIRModel(disease=None)
 
         gradient = model(population, 0)
