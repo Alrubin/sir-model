@@ -1,6 +1,8 @@
-from dash import Dash, html
+from dash import Dash
 import dash_bootstrap_components as dbc
+from components.layout import AppLayout
 from config import AppConfig
+
 
 def SIRModelDash():
     app = Dash(__name__,
@@ -9,7 +11,7 @@ def SIRModelDash():
                external_stylesheets=[dbc.themes.YETI]
                )
 
-    app.layout = html.Div()
+    app.layout = AppLayout()
 
     return app
 
