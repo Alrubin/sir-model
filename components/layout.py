@@ -1,6 +1,8 @@
 from dash import html
+from components.navbar import Navbar
 
 
 class AppLayout:
     def __call__(self):
-        return html.Div([html.H1("Sta funzionando")])
+        navbar = Navbar()
+        return html.Div([navbar()])
