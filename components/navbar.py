@@ -22,7 +22,7 @@ class Navbar:
         )
 
     def github_link(self):
-        return dbc.NavItem(dbc.NavLink("Github"))
+        return dbc.NavItem(dbc.NavLink("Github", href="https://github.com/Alrubin/sir-model"))
 
     def donation_button(self):
         return dbc.Button("Donate", id="donation_button", n_clicks=0, class_name="me-1", color="warning")
