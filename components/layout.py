@@ -1,4 +1,5 @@
 from dash import html
+from components.evolution_panel import EvolutionPanel
 from components.navbar import Navbar
 
 
@@ -7,6 +8,7 @@ class AppLayout:
         return html.Div([
             self.navbar(),
             self.left_sidebar(),
+            self.central_bar()
         ])
 
     def navbar(self):
@@ -26,3 +28,6 @@ class AppLayout:
             "padding": "2rem 1rem",
             "background-color": "#f8f9fa",
         })
+
+    def central_bar(self):
+        return EvolutionPanel()()
