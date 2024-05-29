@@ -5,7 +5,6 @@ from lib.model import SIRModel
 from lib.population import SIRPopulationState, build_sir_population
 import pandas as pd
 import plotly.graph_objects as go
-import dash_bootstrap_components as dbc
 from dash import dcc
 
 class Scenario:
