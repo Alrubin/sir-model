@@ -4,5 +4,9 @@ from components.navbar import Navbar
 
 class AppLayout:
     def __call__(self):
-        navbar = Navbar()
-        return html.Div([navbar()])
+        return html.Div([
+            self.navbar()
+            ])
+
+    def navbar(self):
+        return Navbar()()
