@@ -15,6 +15,7 @@ class Scenario:
         if n_days != 0:
             time_grid = np.linspace(start=0, stop=n_days, num=n_days)
             model = SIRModel(disease=self.disease)
-            population_evolution += [build_sir_population(*population) for population in odeint(model, self.initial_conditions.array(), time_grid)]
+            population_evolution += [build_sir_population(*population) for population in
+                                     odeint(model, self.initial_conditions.array(), time_grid)]
 
         return population_evolution
