@@ -23,8 +23,8 @@ class Scenario:
         return population_evolution
 
 
-def update_scenario(n_days):
-    initial_conditions = build_sir_population(susceptibles=100, infected=0, removed=0)
+def update_scenario(S0, I0, R0, n_days):
+    initial_conditions = build_sir_population(susceptibles=S0, infected=I0, removed=R0)
     disease = SIRDisease(transmission_rate=0.1, recovery_rate=0.1)
 
     scenario = Scenario(initial_conditions=initial_conditions,
@@ -37,11 +37,9 @@ def update_scenario(n_days):
     df["Giorno"] = range(n_days+1)
 
     fig = go.Figure()
-    fig.add_trace(
-        go.Scatter(x=df['Giorno'], y=df['S'], mode='lines', name='Suscettibili', line=dict(color='royalblue', width=3)))
+    fig.add_trace(go.Scatter(x=df['Giorno'], y=df['S'], mode='lines', name='Suscettibili', line=dict(color='royalblue', width=3)))
     fig.add_trace(go.Scatter(x=df['Giorno'], y=df['I'], mode='lines', name='Infetti', line=dict(color='red', width=3)))
-    fig.add_trace(
-        go.Scatter(x=df['Giorno'], y=df['R'], mode='lines', name='Rimossi', line=dict(color='green', width=3)))
+    fig.add_trace(go.Scatter(x=df['Giorno'], y=df['R'], mode='lines', name='Rimossi', line=dict(color='green', width=3)))
 
     fig.update_layout(overwrite=True,
                       plot_bgcolor="#f8f9fa",

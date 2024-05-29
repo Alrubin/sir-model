@@ -1,4 +1,6 @@
 from dash import html
+
+from components.control_panel import ControlPanel
 from components.evolution_panel import EvolutionPanel
 from components.navbar import Navbar
 
@@ -15,7 +17,7 @@ class AppLayout:
         return Navbar()()
 
     def left_sidebar(self):
-        return html.Div(children=[], style={
+        return html.Div(children=[self.control_panel()], style={
             "position": "fixed",
             "top": 62.5,
             "left": 0,
@@ -31,3 +33,6 @@ class AppLayout:
 
     def central_bar(self):
         return EvolutionPanel()()
+
+    def control_panel(self):
+        return ControlPanel()()
