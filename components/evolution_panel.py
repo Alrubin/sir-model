@@ -7,13 +7,14 @@ class EvolutionPanel:
         graph_scenario = dbc.CardBody([
             self.title_row(),
             html.Hr(),
-            html.Div(id="scenario_content")
+            html.Div(id="scenario_content"),
+            html.P(),
+            self.footer()
         ])
 
         return html.Div(dbc.Card(children=[graph_scenario],
                                  color="secondary",
                                  outline=True),
-                        id="pagecontent",
                         style={
                             "margin-left": "25rem",
                             "margin-right": "0rem",
@@ -27,3 +28,11 @@ class EvolutionPanel:
 
     def title(self):
         return html.H4("Evoluzione temporale dell'epidemia")
+
+    def footer(self):
+        return dbc.Row([
+            dbc.Col(html.H4(" "), width=2),
+            dbc.Col(html.H4("Asse orizzontale (Giorni):"), width=6),
+            dbc.Col(dbc.Input(id="giorni", type="number", value=120), width=3),
+            dbc.Col(html.H4(" "), width=1)
+        ])
