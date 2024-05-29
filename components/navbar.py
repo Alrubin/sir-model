@@ -22,23 +22,23 @@ class Navbar:
         )
 
     def github_link(self):
-        return dbc.NavItem(dbc.NavLink("Github", href="https://github.com/Alrubin/sir-model"))
+        return dbc.NavItem(dbc.NavLink(children="Github", href="https://github.com/Alrubin/sir-model"))
 
     def donation_button(self):
-        return dbc.Button("Donate", id="donation_button", n_clicks=0, class_name="me-1", color="warning")
+        return dbc.Button(children="Donate", id="donation_button", n_clicks=0, class_name="me-1", color="warning")
 
     def donation_modal(self):
         header = dbc.ModalHeader(dbc.ModalTitle("Donazione"))
         body = dbc.ModalBody("""L'accesso a questa dashboard è gratuito perchè sono profondamente convinto che la cultura non abbia prezzo.
                             Tuttavia, sviluppare e mantenere il codice per garantire un servizio sempre aggiornato è un lavoro importante. 
                             Se hai apprezzato questo strumento, considera una donazione per supportarmi.""")
-        footer = dbc.ModalFooter(dbc.Button("Paypal",
+        footer = dbc.ModalFooter(dbc.Button(children="Paypal",
                                             id="paypal",
                                             className="ml-auto",
                                             color="warning",
                                             href='https://paypal.me/alessandrorubin1')
                                  )
-        return dbc.Modal([
+        return dbc.Modal(children=[
             header, body, footer
         ], id="donation_modal", is_open=False, size="lg")
 
