@@ -5,8 +5,11 @@ from dash import html, dcc
 class ControlPanel:
 
     def __call__(self):
+        accordion = dbc.Accordion(children=[
+            dbc.AccordionItem(children=[self.initial_conditions_panel()], title="Initial conditions")
+        ], start_collapsed=True)
 
-        return html.Div(children=self.initial_conditions_panel())
+        return html.Div(children=accordion)
 
 
     def initial_conditions_panel(self):
