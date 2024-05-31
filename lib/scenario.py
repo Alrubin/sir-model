@@ -1,3 +1,5 @@
+from typing import Union
+
 import numpy as np
 from scipy.integrate import odeint
 from lib.disease import SIRDisease
@@ -8,7 +10,7 @@ import plotly.graph_objects as go
 from dash import dcc
 
 class Scenario:
-    def __init__(self, initial_conditions: SIRPopulationState, disease: SIRDisease):
+    def __init__(self, initial_conditions: SIRPopulationState, disease: Union[None, SIRDisease] = None):
         self.initial_conditions = initial_conditions
         self.disease = disease
 
@@ -25,10 +27,9 @@ class Scenario:
 
 def update_scenario(S0, I0, R0, n_days):
     initial_conditions = build_sir_population(susceptibles=S0, infected=I0, removed=R0)
-    disease = SIRDisease(transmission_rate=0.1, recovery_rate=0.1)
 
     scenario = Scenario(initial_conditions=initial_conditions,
-                        disease=disease
+                        disease=None
                         )
 
     population_evolution = [item.array() for item in scenario.compute_evolution(n_days)]
