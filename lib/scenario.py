@@ -2,12 +2,14 @@ from typing import Union
 
 import numpy as np
 from scipy.integrate import odeint
+
+from config import GraphLayoutSettings
+from components.main_graph import ScatterLine, MainGraph
 from lib.disease import SIRDisease
 from lib.model import SIRModel
 from lib.population import SIRPopulationState, build_sir_population
 import pandas as pd
-import plotly.graph_objects as go
-from dash import dcc
+
 
 class Scenario:
     def __init__(self, initial_conditions: SIRPopulationState, disease: Union[None, SIRDisease] = None):
@@ -35,19 +37,14 @@ def update_scenario(S0, I0, R0, n_days):
     population_evolution = [item.array() for item in scenario.compute_evolution(n_days)]
 
     df = pd.DataFrame(population_evolution, columns=["S", "I", "R"])
-    df["Giorno"] = range(n_days+1)
+    df["Giorno"] = range(n_days + 1)
 
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df['Giorno'], y=df['S'], mode='lines', name='Suscettibili', line=dict(color='royalblue', width=3)))
-    fig.add_trace(go.Scatter(x=df['Giorno'], y=df['I'], mode='lines', name='Infetti', line=dict(color='red', width=3)))
-    fig.add_trace(go.Scatter(x=df['Giorno'], y=df['R'], mode='lines', name='Rimossi', line=dict(color='green', width=3)))
+    graph = MainGraph([
+        ScatterLine(df['Giorno'], df['S'], 'Suscettibili', 'royalblue'),
+        ScatterLine(df['Giorno'], df['I'], 'Infetti', 'red'),
+        ScatterLine(df['Giorno'], df['R'], 'Rimossi', 'green')
+    ],
+        GraphLayoutSettings()
+    ).build()
 
-    fig.update_layout(overwrite=True,
-                      plot_bgcolor="#f8f9fa",
-                      margin={"b": 0, "l": 20, "r": 20, "t": 0},
-                      title={'y': 0.98, 'x': 0.08, 'xanchor': 'left', 'yanchor': 'top'},
-                      height=350,
-                      yaxis_title='Popolazione', font={"size": 18},
-                      legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1))
-
-    return dcc.Graph(figure=fig)
+    return graph
