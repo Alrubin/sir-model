@@ -1,7 +1,6 @@
-from dash import dcc
 from plotly import graph_objects as go
 
-from config import GraphLayoutSettings
+from plotly.graph_objs import Layout
 
 
 class ScatterLine(go.Scatter):
@@ -15,25 +14,26 @@ class ScatterLine(go.Scatter):
         )
 
 
+layout = Layout(
+    plot_bgcolor="#f8f9fa",
+    margin={"b": 0, "l": 20, "r": 20, "t": 0},
+    title={'y': 0.98, 'x': 0.08, 'xanchor': "left", 'yanchor': "top"},
+    height=350,
+    yaxis_title="Popolazione",
+    font={"size": 18},
+    legend={
+        'orientation': "h",
+        'yanchor': "bottom",
+        'y': 1,
+        'xanchor': "right",
+        'x': 1.02
+    }
+)
+
+
 class MainGraph(go.Figure):
-    def __init__(self, lines: list[ScatterLine], layout: GraphLayoutSettings):
+    def __init__(self, lines: list[ScatterLine], layout: Layout):
         super().__init__(
             data=lines,
-            layout={'plot_bgcolor': layout.background_color,
-                    'margin': {"b": layout.margin_bottom,
-                               "l": layout.margin_left,
-                               "r": layout.margin_right,
-                               "t": layout.margin_top},
-                    'title': {'y': layout.title_y,
-                              'x': layout.title_x,
-                              'xanchor': layout.title_xanchor,
-                              'yanchor': layout.title_yanchor},
-                    'height': layout.height,
-                    'yaxis_title': layout.title,
-                    'font': {"size": layout.font_size},
-                    'legend': {'orientation': layout.legend_orientation,
-                               'yanchor': layout.legend_yanchor,
-                               'y': layout.legend_yaxis,
-                               'xanchor': layout.legend_xanchor,
-                               'x': layout.legend_yaxis}}
+            layout=layout
         )

@@ -4,8 +4,7 @@ import numpy as np
 from dash import dcc
 from scipy.integrate import odeint
 
-from config import GraphLayoutSettings
-from components.main_graph import ScatterLine, MainGraph
+from components.main_graph import ScatterLine, MainGraph, layout
 from lib.disease import SIRDisease
 from lib.model import SIRModel
 from lib.population import InitialValues
@@ -29,7 +28,7 @@ class Scenario:
             ScatterLine(df['Giorno'], df['I'], 'Infetti', 'red'),
             ScatterLine(df['Giorno'], df['R'], 'Rimossi', 'green')
         ],
-            GraphLayoutSettings()
+            layout
         )
 
         return dcc.Graph(figure=fig)
