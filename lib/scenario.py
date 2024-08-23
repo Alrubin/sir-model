@@ -17,6 +17,22 @@ class Scenario:
         self.disease = disease
         self._model = SIRModel(disease=self.disease)
 
+    def update_graph(self, n_days):
+        population_evolution = self.compute_evolution(n_days)
+
+        df = pd.DataFrame(population_evolution, columns=["S", "I", "R"])
+        df["Giorno"] = range(n_days + 1)
+
+        graph = MainGraph([
+            ScatterLine(df['Giorno'], df['S'], 'Suscettibili', 'royalblue'),
+            ScatterLine(df['Giorno'], df['I'], 'Infetti', 'red'),
+            ScatterLine(df['Giorno'], df['R'], 'Rimossi', 'green')
+        ],
+            GraphLayoutSettings()
+        ).build()
+
+        return graph
+
     def compute_evolution(self, n_days):
         population_evolution = [self.initial_conditions]
         if n_days != 0:
@@ -31,17 +47,6 @@ def update_scenario(S0, I0, R0, n_days):
 
     scenario = Scenario(initial_conditions=initial_conditions, disease=None)
 
-    population_evolution = scenario.compute_evolution(n_days)
-
-    df = pd.DataFrame(population_evolution, columns=["S", "I", "R"])
-    df["Giorno"] = range(n_days + 1)
-
-    graph = MainGraph([
-        ScatterLine(df['Giorno'], df['S'], 'Suscettibili', 'royalblue'),
-        ScatterLine(df['Giorno'], df['I'], 'Infetti', 'red'),
-        ScatterLine(df['Giorno'], df['R'], 'Rimossi', 'green')
-    ],
-        GraphLayoutSettings()
-    ).build()
+    graph = scenario.update_graph(n_days)
 
     return graph
