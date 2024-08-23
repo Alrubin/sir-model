@@ -34,12 +34,11 @@ class Scenario:
         return graph
 
     def compute_evolution(self, n_days):
-        population_evolution = [self.initial_conditions]
-        if n_days != 0:
-            time_grid = np.linspace(start=0, stop=n_days, num=n_days)
-            population_evolution += [pop for pop in odeint(self._model, self.initial_conditions, time_grid)]
+        initial_conditions = np.array(self.initial_conditions).reshape(1, -1)
+        time_grid = np.linspace(start=0, stop=n_days, num=n_days)
+        population_evolution = odeint(self._model, self.initial_conditions, time_grid)
 
-        return population_evolution
+        return np.vstack((initial_conditions, population_evolution))
 
 
 def update_scenario(S0, I0, R0, n_days):
