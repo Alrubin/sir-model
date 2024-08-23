@@ -4,20 +4,14 @@ from plotly import graph_objects as go
 from config import GraphLayoutSettings
 
 
-class ScatterLine:
+class ScatterLine(go.Scatter):
     def __init__(self, days: list[float], values: list[float], name: str, color: str):
-        self.days = days
-        self.values = values
-        self.name = name
-        self.color = color
-
-    def figure(self):
-        return go.Scatter(
-            x=self.days,
-            y=self.values,
+        super().__init__(
+            x=days,
+            y=values,
             mode='lines',
-            name=self.name,
-            line={'color': self.color, 'width': 3}
+            name=name,
+            line={'color': color, 'width': 3}
         )
 
 
@@ -29,7 +23,7 @@ class MainGraph:
     def build(self):
         fig = go.Figure()
         for line in self.lines:
-            fig.add_trace(line.figure())
+            fig.add_trace(line)
         fig.update_layout(
             overwrite=self.layout.overwrite,
             plot_bgcolor=self.layout.background_color,
