@@ -15,34 +15,25 @@ class ScatterLine(go.Scatter):
         )
 
 
-class MainGraph:
+class MainGraph(go.Figure):
     def __init__(self, lines: list[ScatterLine], layout: GraphLayoutSettings):
-        self.lines = lines
-        self.layout = layout
-
-    def build(self):
-        fig = go.Figure()
-        for line in self.lines:
-            fig.add_trace(line)
-        fig.update_layout(
-            overwrite=self.layout.overwrite,
-            plot_bgcolor=self.layout.background_color,
-            margin={"b": self.layout.margin_bottom,
-                    "l": self.layout.margin_left,
-                    "r": self.layout.margin_right,
-                    "t": self.layout.margin_top},
-            title={'y': self.layout.title_y,
-                   'x': self.layout.title_x,
-                   'xanchor': self.layout.title_xanchor,
-                   'yanchor': self.layout.title_yanchor},
-            height=self.layout.height,
-            yaxis_title=self.layout.title,
-            font={"size": self.layout.font_size},
-            legend={'orientation': self.layout.legend_orientation,
-                    'yanchor': self.layout.legend_yanchor,
-                    'y': self.layout.legend_yaxis,
-                    'xanchor': self.layout.legend_xanchor,
-                    'x': self.layout.legend_yaxis}
+        super().__init__(
+            data=lines,
+            layout={'plot_bgcolor': layout.background_color,
+                    'margin': {"b": layout.margin_bottom,
+                               "l": layout.margin_left,
+                               "r": layout.margin_right,
+                               "t": layout.margin_top},
+                    'title': {'y': layout.title_y,
+                              'x': layout.title_x,
+                              'xanchor': layout.title_xanchor,
+                              'yanchor': layout.title_yanchor},
+                    'height': layout.height,
+                    'yaxis_title': layout.title,
+                    'font': {"size": layout.font_size},
+                    'legend': {'orientation': layout.legend_orientation,
+                               'yanchor': layout.legend_yanchor,
+                               'y': layout.legend_yaxis,
+                               'xanchor': layout.legend_xanchor,
+                               'x': layout.legend_yaxis}}
         )
-
-        return dcc.Graph(figure=fig)

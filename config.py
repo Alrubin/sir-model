@@ -10,7 +10,6 @@ class AppConfig:
 
 @dataclass
 class GraphLayoutSettings:
-    overwrite = True
     background_color = "#f8f9fa"
     height = 350
     title = "Popolazione"

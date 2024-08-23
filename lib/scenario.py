@@ -1,6 +1,7 @@
 from typing import Union
 
 import numpy as np
+from dash import dcc
 from scipy.integrate import odeint
 
 from config import GraphLayoutSettings
@@ -23,15 +24,15 @@ class Scenario:
         df = pd.DataFrame(population_evolution, columns=["S", "I", "R"])
         df["Giorno"] = range(n_days + 1)
 
-        graph = MainGraph([
+        fig = MainGraph([
             ScatterLine(df['Giorno'], df['S'], 'Suscettibili', 'royalblue'),
             ScatterLine(df['Giorno'], df['I'], 'Infetti', 'red'),
             ScatterLine(df['Giorno'], df['R'], 'Rimossi', 'green')
         ],
             GraphLayoutSettings()
-        ).build()
+        )
 
-        return graph
+        return dcc.Graph(figure=fig)
 
     def compute_evolution(self, n_days):
         initial_conditions = np.array(self.initial_conditions).reshape(1, -1)
