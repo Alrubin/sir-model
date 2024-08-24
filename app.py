@@ -2,6 +2,7 @@ from dash import Dash
 from dash_bootstrap_components.themes import YETI
 from callbacks.callbacks import register_callbacks
 from components.AppLayout import AppLayout
+import yaml
 
 
 class Dashboard(Dash):
@@ -17,10 +18,13 @@ class Dashboard(Dash):
 
 
 if __name__ == '__main__':
+    with open("config.yml", "r") as ymlfile:
+        config = yaml.safe_load(ymlfile)
+
     app = Dashboard(
         title="SIRModelDash",
         theme=YETI,
         layout=AppLayout(),
         callbacks=register_callbacks
     )
-    app.run_server(debug=False, host="127.0.0.1", port="8050")
+    app.run_server(**config["server"])
