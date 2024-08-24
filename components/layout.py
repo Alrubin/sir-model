@@ -14,8 +14,8 @@ class AppLayout:
         ])
 
     def navbar(self):
-        return Navbar(github="https://github.com/Alrubin/sir-model",
-                      paypal='https://paypal.me/alessandrorubin1')()
+        return Navbar(github="https://github.com/Alrubin/sir-model")
+
 
     def left_sidebar(self):
         return html.Div(children=[self.control_panel()], style={
