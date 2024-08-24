@@ -7,13 +7,16 @@ class DonationModal(Modal):
         self.paypal = paypal
         self.text = text
 
+        super().__init__(children=self.build_modal(),
+                         id="donation_modal",
+                         is_open=False,
+                         size="lg")
+
+    def build_modal(self):
         header = ModalHeader(ModalTitle("Donazione"))
         body = ModalBody(self.text)
         footer = ModalFooter(self.paypal_button())
-
-        super().__init__(children=[
-            header, body, footer
-        ], id="donation_modal", is_open=False, size="lg")
+        return [header, body, footer]
 
     def paypal_button(self):
         return Button(children="Paypal",
