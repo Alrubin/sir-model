@@ -4,6 +4,10 @@ from dash import html
 
 class Navbar:
 
+    def __init__(self, github: str, paypal: str):
+        self.github = github
+        self.paypal = paypal
+
     def __call__(self):
         donation_button_with_modal = html.Div([
             self.donation_button(),
@@ -22,7 +26,7 @@ class Navbar:
         )
 
     def github_link(self):
-        return dbc.NavItem(dbc.NavLink(children="Github", href="https://github.com/Alrubin/sir-model"))
+        return dbc.NavItem(dbc.NavLink(children="Github", href=self.github))
 
     def donation_button(self):
         return dbc.Button(children="Donate", id="donation_button", n_clicks=0, class_name="me-1", color="warning")
@@ -36,7 +40,7 @@ class Navbar:
                                             id="paypal",
                                             className="ml-auto",
                                             color="warning",
-                                            href='https://paypal.me/alessandrorubin1')
+                                            href=self.paypal)
                                  )
         return dbc.Modal(children=[
             header, body, footer
