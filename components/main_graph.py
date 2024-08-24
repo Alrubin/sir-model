@@ -1,6 +1,11 @@
+from typing import List
+
+from dash import dcc
 from plotly import graph_objects as go
 
 from plotly.graph_objs import Layout
+
+from lib.population import Population
 
 
 class ScatterLine(go.Scatter):
@@ -37,3 +42,20 @@ class MainGraph(go.Figure):
             data=lines,
             layout=layout
         )
+
+
+def update_graph(population_evolution: List[Population]):
+    susceptibles = [population.susceptibles for population in population_evolution]
+    infected = [population.infected for population in population_evolution]
+    removed = [population.removed for population in population_evolution]
+    giorni = list(range(len(population_evolution) + 1))
+
+    fig = MainGraph([
+        ScatterLine(giorni, susceptibles, 'Suscettibili', 'royalblue'),
+        ScatterLine(giorni, infected, 'Infetti', 'red'),
+        ScatterLine(giorni, removed, 'Rimossi', 'green')
+    ],
+        layout
+    )
+
+    return dcc.Graph(figure=fig)
