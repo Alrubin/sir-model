@@ -1,7 +1,7 @@
 from dash import Dash
 import dash_bootstrap_components as dbc
 from callbacks.callbacks import register_callbacks
-from components.layout import AppLayout
+from components.AppLayout import AppLayout
 from config import settings
 
 

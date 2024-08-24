@@ -2,7 +2,7 @@ from typing import Union
 import numpy as np
 from scipy.integrate import odeint
 
-from components.main_graph import MainGraph
+from components.MainGraph import MainGraph
 from config import layout
 from lib.disease import SIRDisease
 from lib.model import SIRModel
