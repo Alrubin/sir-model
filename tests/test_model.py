@@ -15,7 +15,7 @@ class SIRModelTest(unittest.TestCase):
         self.assertEqual((-10.0, 9.0, 1.0), gradient)
 
     def test_absence_of_disease(self):
-        population =InitialValues(susceptibles=10, infected=10, removed=10)
+        population = InitialValues(susceptibles=10, infected=10, removed=10)
         model = SIRModel(disease=None)
 
         gradient = model(population, 0)
