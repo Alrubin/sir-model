@@ -1,5 +1,5 @@
 from dash import Output, Input, State
-from components.navbar import trigger_donation_modal
+from components.NavBar import trigger_donation_modal
 from lib.scenario import update_scenario
 
 
