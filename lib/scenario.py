@@ -2,7 +2,8 @@ from typing import Union
 import numpy as np
 from scipy.integrate import odeint
 
-from components.main_graph import update_graph
+from components.main_graph import MainGraph
+from config import layout
 from lib.disease import SIRDisease
 from lib.model import SIRModel
 from lib.population import InitialValues, Population
@@ -27,6 +28,6 @@ def update_scenario(S0, I0, R0, n_days):
     scenario = SIRScenario(initial_conditions=initial_conditions, disease=None)
     population_evolution = scenario.compute_evolution(n_days)
 
-    graph = update_graph(population_evolution)
+    graph = MainGraph(population_evolution, layout)
 
     return graph

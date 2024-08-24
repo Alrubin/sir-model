@@ -2,7 +2,7 @@ from dash import Dash
 import dash_bootstrap_components as dbc
 from callbacks.callbacks import register_callbacks
 from components.layout import AppLayout
-from config import AppConfig
+from config import settings
 
 
 def SIRModelDash():
@@ -21,7 +21,7 @@ def SIRModelDash():
 app = SIRModelDash()
 
 if __name__ == '__main__':
-    app.run_server(debug=AppConfig.debug,
-                   host=AppConfig.host,
-                   port=AppConfig.port
+    app.run_server(debug=settings.debug,
+                   host=settings.host,
+                   port=settings.port
                    )
