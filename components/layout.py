@@ -1,5 +1,6 @@
 from dash import html
 
+from components.DonationModal import DonationModal
 from components.control_panel import ControlPanel
 from components.evolution_panel import EvolutionPanel
 from components.navbar import Navbar
@@ -14,7 +15,12 @@ class AppLayout:
         ])
 
     def navbar(self):
-        return Navbar(github="https://github.com/Alrubin/sir-model")
+        donation_modal = DonationModal(paypal='https://paypal.me/alessandrorubin1',
+                      text="""L'accesso a questa dashboard è gratuito perchè sono profondamente convinto che la cultura non abbia prezzo.
+                                    Tuttavia, sviluppare e mantenere il codice per garantire un servizio sempre aggiornato è un lavoro importante. 
+                                    Se hai apprezzato questo strumento, considera una donazione per supportarmi.""")
+        return Navbar(github="https://github.com/Alrubin/sir-model",
+                      donation_modal=donation_modal)
 
 
     def left_sidebar(self):

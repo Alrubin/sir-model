@@ -1,20 +1,17 @@
 import dash_bootstrap_components as dbc
+from dash_bootstrap_components import Modal
 from dash import html
-
-from components.DonationModal import DonationModal
 
 
 class Navbar(dbc.NavbarSimple):
 
-    def __init__(self, github: str):
+    def __init__(self, github: str, donation_modal: Modal):
         self.github = github
+        self.donation_modal = donation_modal
 
         donation_button_with_modal = html.Div([
             self.donation_button(),
-            DonationModal(paypal='https://paypal.me/alessandrorubin1',
-                          text="""L'accesso a questa dashboard è gratuito perchè sono profondamente convinto che la cultura non abbia prezzo.
-                            Tuttavia, sviluppare e mantenere il codice per garantire un servizio sempre aggiornato è un lavoro importante. 
-                            Se hai apprezzato questo strumento, considera una donazione per supportarmi."""),
+            self.donation_modal,
         ])
 
         navigation_links = dbc.Nav([self.github_link(),
