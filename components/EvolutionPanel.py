@@ -4,7 +4,7 @@ from dash_bootstrap_components import CardBody, Card, Row, Col, Input
 
 class EvolutionPanel(Div):
     def __init__(self, title: str):
-        self.title = H4(title)
+        self.title = title
 
         graph_scenario = CardBody([
             self.title_row(),
@@ -27,7 +27,7 @@ class EvolutionPanel(Div):
             })
 
     def title_row(self):
-        return Row([Col(self.title, width=9)])
+        return Row([Col(H4(self.title), width=9)])
 
     def footer(self):
         return Row([
