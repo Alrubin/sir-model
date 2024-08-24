@@ -2,7 +2,7 @@ import unittest
 from parameterized import parameterized
 from lib.disease import SIRDisease
 from lib.population import InitialValues
-from lib.scenario import Scenario
+from lib.scenario import SIRScenario
 
 
 class ScenarioTest(unittest.TestCase):
@@ -10,7 +10,7 @@ class ScenarioTest(unittest.TestCase):
     def test_base(self, n):
         initial_conditions = InitialValues(susceptibles=10, infected=10, removed=10)
         disease = SIRDisease(transmission_rate=0.1, recovery_rate=0.1)
-        scenario = Scenario(initial_conditions=initial_conditions, disease=disease)
+        scenario = SIRScenario(initial_conditions=initial_conditions, disease=disease)
 
         population_evolution = scenario.compute_evolution(n_days=n)
 
