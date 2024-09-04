@@ -1,7 +1,8 @@
 from dash.html import Div
 from components.DonationModal import DonationModal
 from components.ControlPanel import ControlPanel
-from components.EvolutionPanel import EvolutionPanel
+from components.CentralBar import CentralBar
+from components.GraphCard import GraphCard
 from components.LeftSidebar import LeftSidebar
 from components.NavBar import NavBar
 
@@ -19,5 +20,5 @@ class AppLayout(Div):
             NavBar(repository_url="https://github.com/Alrubin/sir-model",
                    donation_modal=self.donation_modal),
             LeftSidebar([ControlPanel()]),
-            EvolutionPanel(title="Evoluzione temporale dell'epidemia")
+            CentralBar([GraphCard("Evoluzione temporale dell'epidemia")])
         ])
