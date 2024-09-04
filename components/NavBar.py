@@ -4,8 +4,8 @@ from dash.html import Div
 
 class NavBar(NavbarSimple):
 
-    def __init__(self, github: str, donation_modal: Modal):
-        self.github = github
+    def __init__(self, repository_url: str, donation_modal: Modal):
+        self.github = repository_url
         self.donation_modal = donation_modal
         self.navigation_links = Nav([self.github_link(), self.button_with_donation_modal()])
 

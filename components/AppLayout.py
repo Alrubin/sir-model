@@ -9,13 +9,15 @@ from components.NavBar import NavBar
 class AppLayout(Div):
     def __init__(self):
         self.donation_modal = DonationModal(
-            paypal='https://paypal.me/alessandrorubin1',
-            text="L'accesso a questa dashboard è gratuito perchè sono profondamente convinto che la cultura non abbia prezzo." \
+            paypal_link='https://paypal.me/alessandrorubin1',
+            message="L'accesso a questa dashboard è gratuito perchè sono profondamente convinto che la cultura non abbia prezzo." \
                  "Tuttavia, sviluppare e mantenere il codice per garantire un servizio sempre aggiornato è un lavoro importante." \
-                 "Se hai apprezzato questo strumento, considera una donazione per supportarmi.""")
+                 "Se hai apprezzato questo strumento, considera una donazione per supportarmi.""",
+            title="Donazione"
+        )
         super().__init__(children=[
-            NavBar(github="https://github.com/Alrubin/sir-model",
+            NavBar(repository_url="https://github.com/Alrubin/sir-model",
                    donation_modal=self.donation_modal),
             LeftSidebar([ControlPanel()]),
-            EvolutionPanel("Evoluzione temporale dell'epidemia")
+            EvolutionPanel(title="Evoluzione temporale dell'epidemia")
         ])
