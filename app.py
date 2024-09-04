@@ -1,12 +1,11 @@
 from dash import Dash
 from dash_bootstrap_components.themes import YETI
-from callbacks.callbacks import register_callbacks
 from components.AppLayout import AppLayout
 import yaml
 
 
 class Dashboard(Dash):
-    def __init__(self, title, theme, layout, callbacks):
+    def __init__(self, title, theme, layout):
         super().__init__(
             __name__,
             title=title,
@@ -14,7 +13,6 @@ class Dashboard(Dash):
             external_stylesheets=[theme]
         )
         self.layout = layout
-        callbacks(self)
 
 
 if __name__ == '__main__':
@@ -24,7 +22,6 @@ if __name__ == '__main__':
     app = Dashboard(
         title="SIRModelDash",
         theme=YETI,
-        layout=AppLayout(),
-        callbacks=register_callbacks
+        layout=AppLayout()
     )
     app.run_server(**config["server"])

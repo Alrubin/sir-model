@@ -1,5 +1,11 @@
+from dash import callback, Output, Input
 from dash.html import H4, Div, Hr, P
-from dash_bootstrap_components import Row, Col, Card, CardBody, Input
+import dash_bootstrap_components as dbc
+from dash_bootstrap_components import Row, Col, Card, CardBody
+from plotly.graph_objs import Layout
+from components.MainGraph import MainGraph
+from lib.population import InitialValues
+from lib.scenario import SIRScenario
 
 
 class GraphCard(Card):
@@ -7,6 +13,36 @@ class GraphCard(Card):
     def __init__(self, title, footer_description):
         self.title = title
         self.footer_description = footer_description
+
+        @callback(
+            Output(component_id="scenario_content", component_property="children"),
+            [Input(component_id='S0', component_property='value'),
+             Input(component_id='I0', component_property='value'),
+             Input(component_id='R0', component_property='value'),
+             Input(component_id='giorni', component_property='value')]
+        )
+        def update_scenario(S0, I0, R0, n_days):
+            initial_conditions = InitialValues(susceptibles=S0, infected=I0, removed=R0)
+            scenario = SIRScenario(initial_conditions=initial_conditions, disease=None)
+            population_evolution = scenario.compute_evolution(n_days)
+
+            layout = Layout(
+                plot_bgcolor="#f8f9fa",
+                margin={"b": 0, "l": 20, "r": 20, "t": 0},
+                title={'y': 0.98, 'x': 0.08, 'xanchor': "left", 'yanchor': "top"},
+                height=350,
+                yaxis_title="Popolazione",
+                font={"size": 18},
+                legend={
+                    'orientation': "h",
+                    'yanchor': "bottom",
+                    'y': 1,
+                    'xanchor': "right",
+                    'x': 1.02
+                }
+            )
+
+            return MainGraph(population_evolution, layout)
 
         super().__init__(
             children=self.children(),
@@ -29,7 +65,7 @@ class GraphCard(Card):
     def footer(self):
         return Row([
             Col(H4(" "), width=2),
-            Col(H4(self.footer_descriptionn), width=6),
-            Col(Input(id="giorni", type="number", value=120), width=3),
+            Col(H4(self.footer_description), width=6),
+            Col(dbc.Input(id="giorni", type="number", value=120), width=3),
             Col(H4(" "), width=1)
         ])
