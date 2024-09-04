@@ -1,4 +1,5 @@
 from dash_bootstrap_components import Modal, ModalHeader, ModalTitle, ModalBody, ModalFooter, Button
+from dash import callback, Output, Input, State
 
 
 class DonationModal(Modal):
@@ -7,6 +8,14 @@ class DonationModal(Modal):
         self.paypal_link = paypal_link
         self.message = message
         self.title = title
+
+        @callback(
+            Output(component_id="donation_modal", component_property="is_open"),
+            Input(component_id="donation_button", component_property="n_clicks"),
+            State(component_id="donation_modal", component_property="is_open"),
+        )
+        def trigger(n_clicks, is_open):
+            return not is_open if n_clicks else is_open
 
         super().__init__(
             children=self.children(),
@@ -24,7 +33,6 @@ class DonationModal(Modal):
     def paypal_button(self):
         return Button(
             children="Paypal",
-            id="paypal",
             className="ml-auto",
             color="warning",
             href=self.paypal_link

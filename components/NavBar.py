@@ -28,6 +28,3 @@ class NavBar(NavbarSimple):
     def donation_button(self):
         return Button(children="Donate", id="donation_button", n_clicks=0, class_name="me-1", color="warning")
 
-
-def trigger_donation_modal(n_clicks: int, is_open: bool):
-    return not is_open if n_clicks else is_open
