@@ -20,5 +20,5 @@ class AppLayout(Div):
             NavBar(repository_url="https://github.com/Alrubin/sir-model",
                    donation_modal=self.donation_modal),
             LeftSidebar([ControlPanel()]),
-            CentralBar([GraphCard("Evoluzione temporale dell'epidemia")])
+            CentralBar([GraphCard("Evoluzione temporale dell'epidemia","Asse orizzontale (Giorni):")])
         ])

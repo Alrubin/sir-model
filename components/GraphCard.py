@@ -4,8 +4,9 @@ from dash_bootstrap_components import Row, Col, Card, CardBody, Input
 
 class GraphCard(Card):
 
-    def __init__(self, title):
+    def __init__(self, title, footer_description):
         self.title = title
+        self.footer_description = footer_description
 
         super().__init__(
             children=self.children(),
@@ -28,7 +29,7 @@ class GraphCard(Card):
     def footer(self):
         return Row([
             Col(H4(" "), width=2),
-            Col(H4("Asse orizzontale (Giorni):"), width=6),
+            Col(H4(self.footer_descriptionn), width=6),
             Col(Input(id="giorni", type="number", value=120), width=3),
             Col(H4(" "), width=1)
         ])
