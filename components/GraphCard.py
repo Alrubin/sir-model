@@ -21,28 +21,11 @@ class GraphCard(Card):
              Input(component_id='R0', component_property='value'),
              Input(component_id='giorni', component_property='value')]
         )
-        def update_scenario(S0, I0, R0, n_days):
+        def update_graph(S0, I0, R0, n_days):
             initial_conditions = InitialValues(susceptibles=S0, infected=I0, removed=R0)
             scenario = SIRScenario(initial_conditions=initial_conditions, disease=None)
             population_evolution = scenario.compute_evolution(n_days)
-
-            layout = Layout(
-                plot_bgcolor="#f8f9fa",
-                margin={"b": 0, "l": 20, "r": 20, "t": 0},
-                title={'y': 0.98, 'x': 0.08, 'xanchor': "left", 'yanchor': "top"},
-                height=350,
-                yaxis_title="Popolazione",
-                font={"size": 18},
-                legend={
-                    'orientation': "h",
-                    'yanchor': "bottom",
-                    'y': 1,
-                    'xanchor': "right",
-                    'x': 1.02
-                }
-            )
-
-            return MainGraph(population_evolution, layout)
+            return MainGraph(population_evolution)
 
         super().__init__(
             children=self.children(),
