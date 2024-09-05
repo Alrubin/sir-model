@@ -1,9 +1,8 @@
 from dash.html import Div
 from components.DonationModal import DonationModal
 from components.ControlPanel import ControlPanel
-from components.CentralBar import CentralBar
+from components import VerticalBar
 from components.GraphCard import GraphCard
-from components.LeftSidebar import LeftSidebar
 from components.NavBar import NavBar
 from components.MainGraph import MainGraph
 from lib.population import InitialValues
@@ -29,8 +28,8 @@ class AppLayout(Div):
         super().__init__(children=[
             NavBar(repository_url="https://github.com/Alrubin/sir-model",
                    donation_modal=self.donation_modal()),
-            LeftSidebar([ControlPanel()]),
-            CentralBar([self.graph_card()])
+            VerticalBar(children=[ControlPanel()], class_name="left-sidebar"),
+            VerticalBar(children=[self.graph_card()], class_name="central-bar")
         ])
 
     def graph_card(self):
