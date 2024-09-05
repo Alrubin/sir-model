@@ -1,5 +1,4 @@
-from dash.html import Div, P, Hr, H4
-from dash_bootstrap_components import CardBody, Card, Row, Col, Input
+from dash.html import Div
 
 
 class CentralBar(Div):

@@ -12,13 +12,13 @@ class AppLayout(Div):
         self.donation_modal = DonationModal(
             paypal_link='https://paypal.me/alessandrorubin1',
             message="L'accesso a questa dashboard è gratuito perchè sono profondamente convinto che la cultura non abbia prezzo." \
-                 "Tuttavia, sviluppare e mantenere il codice per garantire un servizio sempre aggiornato è un lavoro importante." \
-                 "Se hai apprezzato questo strumento, considera una donazione per supportarmi.""",
+                    "Tuttavia, sviluppare e mantenere il codice per garantire un servizio sempre aggiornato è un lavoro importante." \
+                    "Se hai apprezzato questo strumento, considera una donazione per supportarmi.""",
             title="Donazione"
         )
         super().__init__(children=[
             NavBar(repository_url="https://github.com/Alrubin/sir-model",
                    donation_modal=self.donation_modal),
             LeftSidebar([ControlPanel()]),
-            CentralBar([GraphCard("Evoluzione temporale dell'epidemia","Asse orizzontale (Giorni):")])
+            CentralBar([GraphCard("Evoluzione temporale dell'epidemia", "Asse orizzontale (Giorni):")])
         ])

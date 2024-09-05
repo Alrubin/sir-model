@@ -1,9 +1,7 @@
 from typing import Union
 import numpy as np
-from plotly.graph_objs import Layout
 from scipy.integrate import odeint
 
-from components.MainGraph import MainGraph
 from lib.disease import SIRDisease
 from lib.model import SIRModel
 from lib.population import InitialValues, Population

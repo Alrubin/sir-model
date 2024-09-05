@@ -1,10 +1,7 @@
 from typing import List
-
 from dash import dcc
 from plotly import graph_objects as go
-
 from plotly.graph_objs import Layout
-
 from lib.population import Population
 
 
