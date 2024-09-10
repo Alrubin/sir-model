@@ -7,3 +7,8 @@ class SIRDisease(BaseModel):
 
     def mean_duration(self):
         return 1 / self.recovery_rate
+
+def build_disease(transmission_rate, recovery_rate):
+    if transmission_rate == 0 and recovery_rate == 0:
+        return None
+    return SIRDisease(transmission_rate=transmission_rate, recovery_rate=recovery_rate)

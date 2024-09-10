@@ -5,6 +5,7 @@ from components import VerticalBar
 from components.GraphCard import GraphCard
 from components.NavBar import NavBar
 from components.MainGraph import MainGraph
+from lib.disease import build_disease
 from lib.population import InitialValues
 from lib.scenario import SIRScenario
 from dash import callback, Output, Input
@@ -17,11 +18,15 @@ class AppLayout(Div):
             [Input(component_id='S0', component_property='value'),
              Input(component_id='I0', component_property='value'),
              Input(component_id='R0', component_property='value'),
-             Input(component_id='giorni', component_property='value')]
+             Input(component_id='giorni', component_property='value'),
+             Input(component_id='tr', component_property='value'),
+             Input(component_id='rr', component_property='value')
+             ]
         )
-        def update_graph(S0, I0, R0, n_days):
+        def update_graph(S0, I0, R0, n_days, transmission_rate, recovery_rate):
             initial_conditions = InitialValues(susceptibles=S0, infected=I0, removed=R0)
-            scenario = SIRScenario(initial_conditions=initial_conditions, disease=None)
+            disease = build_disease(transmission_rate, recovery_rate)
+            scenario = SIRScenario(initial_conditions=initial_conditions, disease=disease)
             population_evolution = scenario.compute_evolution(n_days)
             return MainGraph(population_evolution)
 
