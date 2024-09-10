@@ -18,6 +18,7 @@ class SIRDiseaseTest(TestCase):
 
         self.assertEqual(expected_mean_duration, mean_duration)
 
+
 class TestDiseaseBuilder(unittest.TestCase):
     def test_build_disease_gives_none_when_trivial_params(self):
         transmission_rate = 0
@@ -36,8 +37,3 @@ class TestDiseaseBuilder(unittest.TestCase):
         self.assertIsInstance(disease, SIRDisease)
         self.assertEqual(disease.transmission_rate, 0.1)
         self.assertEqual(disease.recovery_rate, 0.1)
-
-
-
-
-
