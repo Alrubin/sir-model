@@ -14,7 +14,7 @@ class ControlPanel(Div):
 
     def initial_conditions_panel(self):
         return Col(children=[
-            self.initial_condition(field="Susceptibles", input_id="S0", initial_value=100, min=0, step=1),
+            self.initial_condition(field="Susceptibles", input_id="S0", initial_value=1000, min=0, step=1),
             self.initial_condition(field="Infected", input_id="I0", initial_value=0, min=0, step=1),
             self.initial_condition(field="Removed", input_id="R0", initial_value=0, min=0, step=1),
         ])
