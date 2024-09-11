@@ -2,6 +2,8 @@ import dash
 from dash_bootstrap_components import Row, Label, Col, Accordion, AccordionItem, Input, Button
 from dash.html import Div
 
+from lib.population import InitialValues
+
 
 class ControlPanel(Div):
 
@@ -13,7 +15,8 @@ class ControlPanel(Div):
              dash.Input(component_id='R0', component_property='value')
              ])
         def initial_susceptibles(N, I0, R0):
-            return f"Suscettibili: {N - I0 - R0}"
+            initial_values = InitialValues(population=N, infected=I0, removed=R0)
+            return f"Suscettibili: {initial_values.susceptibles}"
 
         accordion = Accordion(children=[
             AccordionItem(children=[self.initial_conditions_panel()], title="Condizioni demografiche iniziali"),
