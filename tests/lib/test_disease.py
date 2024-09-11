@@ -16,7 +16,7 @@ class SIRDiseaseTest(TestCase):
 
         mean_duration = disease.mean_duration()
 
-        self.assertEqual(expected_mean_duration, mean_duration)
+        self.assertEqual(mean_duration, expected_mean_duration)
 
 
 class TestDiseaseBuilder(unittest.TestCase):

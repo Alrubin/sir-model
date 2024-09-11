@@ -3,9 +3,16 @@ from typing import NamedTuple
 
 
 class InitialValues(NamedTuple):
-    susceptibles: NonNegativeInt
+    population: NonNegativeInt
     infected: NonNegativeInt
     removed: NonNegativeInt
+
+    @property
+    def susceptibles(self):
+        return self.population - self.infected - self.removed
+
+    def array(self):
+        return [self.susceptibles, self.infected, self.removed]
 
 
 class Population(NamedTuple):

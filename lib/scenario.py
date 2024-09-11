@@ -1,7 +1,6 @@
 from typing import Union
 import numpy as np
 from scipy.integrate import odeint
-
 from lib.disease import SIRDisease
 from lib.model import SIRModel
 from lib.population import InitialValues, Population
@@ -9,7 +8,7 @@ from lib.population import InitialValues, Population
 
 class SIRScenario:
     def __init__(self, initial_conditions: InitialValues, disease: Union[None, SIRDisease] = None):
-        self.initial_conditions = initial_conditions
+        self.initial_conditions = initial_conditions.array()
         self.disease = disease
         self._model = SIRModel(disease=self.disease)
 

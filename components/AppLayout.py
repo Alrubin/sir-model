@@ -24,8 +24,7 @@ class AppLayout(Div):
              ]
         )
         def update_graph(N0, I0, R0, n_days, transmission_rate, recovery_rate):
-            S0 = N0 - I0 - R0
-            initial_conditions = InitialValues(susceptibles=S0, infected=I0, removed=R0)
+            initial_conditions = InitialValues(population=N0, infected=I0, removed=R0)
             disease = build_disease(transmission_rate, recovery_rate)
             scenario = SIRScenario(initial_conditions=initial_conditions, disease=disease)
             population_evolution = scenario.compute_evolution(n_days)
