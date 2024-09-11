@@ -6,17 +6,17 @@ class ControlPanel(Div):
 
     def __init__(self):
         accordion = Accordion(children=[
-            AccordionItem(children=[self.initial_conditions_panel()], title="Initial conditions"),
-            AccordionItem(children=[self.disease_properties_panel()], title="Disease properties")
+            AccordionItem(children=[self.initial_conditions_panel()], title="Condizioni demografiche iniziali"),
+            AccordionItem(children=[self.disease_properties_panel()], title="Caratteristiche del patogeno")
         ], start_collapsed=True)
 
         super().__init__(children=accordion)
 
     def initial_conditions_panel(self):
         return Col(children=[
-            self.initial_condition(field="Susceptibles", input_id="S0", initial_value=1000, min=0, step=1),
-            self.initial_condition(field="Infected", input_id="I0", initial_value=0, min=0, step=1),
-            self.initial_condition(field="Removed", input_id="R0", initial_value=0, min=0, step=1),
+            self.initial_condition(field="Popolazione", input_id="N0", initial_value=90000, min=0, step=1),
+            self.initial_condition(field="Infetti", input_id="I0", initial_value=0, min=0, step=1),
+            self.initial_condition(field="Rimossi", input_id="R0", initial_value=0, min=0, step=1),
         ])
 
     def disease_properties_panel(self):

@@ -15,7 +15,7 @@ class AppLayout(Div):
     def __init__(self):
         @callback(
             Output(component_id="scenario_content", component_property="children"),
-            [Input(component_id='S0', component_property='value'),
+            [Input(component_id='N0', component_property='value'),
              Input(component_id='I0', component_property='value'),
              Input(component_id='R0', component_property='value'),
              Input(component_id='giorni', component_property='value'),
@@ -23,7 +23,8 @@ class AppLayout(Div):
              Input(component_id='rr', component_property='value')
              ]
         )
-        def update_graph(S0, I0, R0, n_days, transmission_rate, recovery_rate):
+        def update_graph(N0, I0, R0, n_days, transmission_rate, recovery_rate):
+            S0 = N0 - I0 - R0
             initial_conditions = InitialValues(susceptibles=S0, infected=I0, removed=R0)
             disease = build_disease(transmission_rate, recovery_rate)
             scenario = SIRScenario(initial_conditions=initial_conditions, disease=disease)
