@@ -1,8 +1,14 @@
-from pydantic import NonNegativeInt
+from pydantic import NonNegativeInt, model_validator, BaseModel
 from typing import NamedTuple
 
 
-class InitialValues(NamedTuple):
+class Population(NamedTuple):
+    susceptibles: float
+    infected: float
+    removed: float
+
+
+class InitialValues(BaseModel):
     population: NonNegativeInt
     infected: NonNegativeInt
     removed: NonNegativeInt
@@ -12,10 +18,17 @@ class InitialValues(NamedTuple):
         return self.population - self.infected - self.removed
 
     def array(self):
-        return [self.susceptibles, self.infected, self.removed]
+        return Population(
+            susceptibles=self.susceptibles,
+            infected=self.infected,
+            removed=self.removed
+        )
+
+    @model_validator(mode='after')
+    def check_population(cls, values):
+        if values.population - values.infected - values.removed < 0:
+            raise ValueError("Initial susceptibles cannot be negative.")
+        return values
 
 
-class Population(NamedTuple):
-    susceptibles: float
-    infected: float
-    removed: float
+
