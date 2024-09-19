@@ -1,5 +1,5 @@
 import dash
-from dash.dcc import Location
+from dash.dcc import Location, Slider
 from dash_bootstrap_components import Row, Label, Col, Accordion, AccordionItem, Input, Button, CardBody, Card, \
     CardHeader
 from dash.html import Div, P, A
@@ -60,8 +60,21 @@ class ControlPanel(Div):
 
     def disease_properties_panel(self):
         return Col(children=[
-            self.initial_condition(field="Transmission rate", input_id="tr", initial_value=0.1, min=0, step=0.05),
-            self.initial_condition(field="Recovery rate", input_id="rr", initial_value=0.1, min=0, step=0.05)
+            Row(children=[
+                Label(children="Tasso di contatto:", width=7),
+                Col(Input(id="contact_rate", type="number", value=5, size="sm"), width=5)
+            ], class_name="mb-3"),
+
+            Row(children=[
+                Label(children="Tasso di infezione:"),
+                MySlider("infection_rate")
+            ], class_name="mb-3"),
+
+            Row(children=[
+                Label(children="Tasso di recupero:"),
+                MySlider("recovery_rate")
+            ], class_name="mb-3"),
+
         ])
 
     def initial_condition(self, field: str, input_id: str, initial_value: float, min: float, step: float):
@@ -69,3 +82,17 @@ class ControlPanel(Div):
             Label(children=f"{field}:", width=7),
             Col(Input(id=input_id, type="number", value=initial_value, size="sm", min=min, step=step), width=5)
         ], class_name="mb-3")
+
+
+class MySlider(Slider):
+    def __init__(self, id):
+        self.id = id
+
+        super().__init__(
+            min=0,
+            max=100,
+            step=1,
+            value=10,
+            id=self.id,
+            marks={0: '0%', 25: '25%', 50: '50%', 75: '75%', 100: '100%'}
+        )

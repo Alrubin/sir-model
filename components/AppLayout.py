@@ -19,12 +19,15 @@ class AppLayout(Div):
              Input(component_id='I0', component_property='value'),
              Input(component_id='R0', component_property='value'),
              Input(component_id='giorni', component_property='value'),
-             Input(component_id='tr', component_property='value'),
-             Input(component_id='rr', component_property='value')
+             Input(component_id='infection_rate', component_property='value'),
+             Input(component_id='contact_rate', component_property='value'),
+             Input(component_id='recovery_rate', component_property='value'),
              ]
         )
-        def update_graph(N0, I0, R0, n_days, transmission_rate, recovery_rate):
+        def update_graph(N0, I0, R0, n_days, infection_rate, contact_rate, recovery_rate):
             initial_conditions = InitialValues(population=N0, infected=I0, removed=R0)
+            transmission_rate = (infection_rate/100)*(contact_rate/N0)
+            recovery_rate = recovery_rate/100
             disease = build_disease(transmission_rate, recovery_rate)
             scenario = SIRScenario(initial_conditions=initial_conditions, disease=disease)
             population_evolution = scenario.compute_evolution(n_days)
